@@ -1,0 +1,16 @@
+tr, td, th{
+    border: 1px solid black;
+}
+
+th{
+    font-size: 1.5rem;
+}
+
+table{
+    margin-bottom: 3rem;
+}
+
+.btn-large{
+    margin: 1rem;
+    font-size: 1.5rem;
+}

@@ -5,23 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title> Amita project </title>
 
-  <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="{{ url('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="{{ url('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url('css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/> 
 </head>
 <body>
   
-  @include('layouts._nonLoginNavbar')
+  @include('layouts._MainNavbar')
 
   @yield('content')
 
   @include('layouts._footer')
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="{{ url('js/materialize.js') }}"></script>
+  
+  <script src="{{ url('js/materialize.min.js') }}"></script>
   <script src="{{ url('js/init.js') }}"></script>
-
-  </body>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</body>
 </html>
