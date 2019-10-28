@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\sheet;
+use App\Sheet;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 
@@ -21,7 +21,21 @@ class SheetsTableSeeder extends Seeder
         $user->email_verified_at = now();
         $user->save();
 
-        factory(sheet::class, 20)->create([
+        $sheet = new Sheet;
+        $sheet->sheet_name = 'sorting data list';
+        $sheet->sheet_type = 'introduction of computing';
+        $sheet->autor_name = 'Mr. porngparng';
+        $sheet->subject_id = 'cs491';
+        $sheet->sec_number = '1';
+        $sheet->sheet_src = 'https://docs.google.com/document/d/1-SghqZd5aPo10XIhmNniczlU13TixGK15-Yy6dxaE8I/edit';
+        $sheet->instructor = 'Mr. horklug';
+        $sheet->price = 150.0;
+        $sheet->rating = 'GOOD';
+        $sheet->view_count = 15;
+        $sheet->save();
+
+
+        factory(Sheet::class, 20)->create([
             'user_id' => $user->id
         ]);
     }

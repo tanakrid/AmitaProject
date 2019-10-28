@@ -21,17 +21,6 @@ class CreatePostsTable extends Migration
             $table->string('detail', 800)->nullable();
             $table->string('image_src', 100)->nullable();
             $table->Integer('view_count')->default(0);
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('post_comment_id')->unsigned();
-
-            $table->foreign('post_comment_id')
-                ->references('id')
-                ->on('post_comments')
-                ->onDelete('cascade');
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
         });
     }
 

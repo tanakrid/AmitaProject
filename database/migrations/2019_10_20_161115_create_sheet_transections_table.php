@@ -16,17 +16,6 @@ class CreateSheetTransectionsTable extends Migration
         Schema::create('sheet_transections', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('sheet_id')->unsigned();
-            $table->bigInteger('transection_id')->unsigned();
-
-            $table->foreign('sheet_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->foreign('transection_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
         });
     }
 

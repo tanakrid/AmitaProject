@@ -28,17 +28,6 @@ class CreateSheetsTable extends Migration
             // $table->enum('rating', ['GOOD', 'NORMAL', 'BAD']);
             $table->string('rating', 10);
             $table->integer('view_count')->default(0);
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('transection_id')->usigned();
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->foreign('transection_id')
-                ->references('id')
-                ->on('transections')
-                ->onDelete('cascade');
         });
     }
 

@@ -37,7 +37,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function sheets(){
-        return $this->hasMany(sheet::class);
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
+
+    public function own_sheets(){
+        return $this->hasMany(OwnSheet::class);
+    }
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+
+    public function post_comments(){
+        return $this->hasMany(PostComment::class);
+    }
+
+    public function sheets(){
+        return $this->hasMany(Sheet::class);
+    }
+    
 }
