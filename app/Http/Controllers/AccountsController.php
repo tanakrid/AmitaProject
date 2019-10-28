@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\sheet;
-use Auth;
 
-class ProfileController extends Controller
+class AccountsController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
     /**
@@ -18,12 +17,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        // if(Auth::check()){
-            $products = sheet::get();
-            return view('commerce.Store', ['products' => $products]);
-        // }else{
-            // return view('shop.Home');
-        // }
+        return view('account.MyAccount');
     }
 
     /**

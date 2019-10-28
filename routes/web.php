@@ -26,6 +26,10 @@ Route::get('/managePort/{id}', 'CommerceController@edit');
 
 Route::get('/store', 'ProfileController@index');
 
+Route::get('/account', 'AccountsController@index');
 
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
