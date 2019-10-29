@@ -15,13 +15,16 @@ class SheetsTableSeeder extends Seeder
     public function run()
     {
         $user = new User;
+        // $user->id = 1;
         $user->name = 'Administrator';
         $user->email = 'admin@apollo11.com';
         $user->password = Hash::make('admin');
         $user->email_verified_at = now();
+        $user->role = 'ADMIN';
         $user->save();
 
         $sheet = new Sheet;
+        $sheet->id = 1;
         $sheet->sheet_name = 'sorting data list';
         $sheet->sheet_type = 'introduction of computing';
         $sheet->autor_name = 'Mr. porngparng';
@@ -32,6 +35,7 @@ class SheetsTableSeeder extends Seeder
         $sheet->price = 150.0;
         $sheet->rating = 'GOOD';
         $sheet->view_count = 15;
+        $sheet->user_id = $user->id;
         $sheet->save();
 
 

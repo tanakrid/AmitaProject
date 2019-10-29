@@ -15,12 +15,7 @@ class PostsTableAddUserIdAndPostCommentId extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('post_comment_id')->unsigned();
 
-            $table->foreign('post_comment_id')
-                ->references('id')
-                ->on('post_comments')
-                ->onDelete('cascade');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')

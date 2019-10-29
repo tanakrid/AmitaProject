@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(PostComment::class, function (Faker $faker) {
     return [
-        'detail' => $faker->text(200)
+        // 'detail' => $faker->text(200)
     ];
 });

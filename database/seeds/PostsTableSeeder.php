@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Post;
+use App\User;
 
 class PostsTableSeeder extends Seeder
 {
@@ -11,6 +13,8 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Post::class, 20)->create([
+            'user_id' => 10
+        ]);
     }
 }

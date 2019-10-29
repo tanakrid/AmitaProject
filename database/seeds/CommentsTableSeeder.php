@@ -11,14 +11,15 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User;
-        $user->name = 'Administrator';
-        $user->email = 'admin@apollo11.com';
-        $user->password = Hash::make('admin');
-        $user->email_verified_at = now();
+        // $user = new User;
+        // $user->name = 'Administrator';
+        // $user->email = 'admin@apollo11.com';
+        // $user->password = Hash::make('admin');
+        // $user->email_verified_at = now();
 
-        factory(Sheet::class, 20)->create([
-            'user_id' => $user->id
-        ]);
+        // factory(Comment::class, 20)->create([
+        //     'user_id' => 1,
+        //     'sheet_id' => 1
+        // ]);
     }
 }

@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Transection::class, function (Faker $faker) {
     return [
-        'state' => 'rating' => $faker->randomElement($array = array (
-            'SOLD', 'INBASKET'
-            , 'OUTBASKET', 'ADDPRODUCT', 'REMOVEPRODUCT', 'EDITPRODUCT')) 
+        // 'rating' => $faker->randomElement($array = array (
+        //     'SOLD', 'INBASKET'
+        //     , 'OUTBASKET', 'ADDPRODUCT', 'REMOVEPRODUCT', 'EDITPRODUCT')) 
     ];
 });
