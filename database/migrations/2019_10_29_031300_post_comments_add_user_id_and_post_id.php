@@ -36,7 +36,8 @@ class PostCommentsAddUserIdAndPostId extends Migration
     public function down()
     {
         Schema::table('post_comments', function (Blueprint $table) {
-            //
+            $table->dropForeign(['post_id']);
+            $table->dropForeign(['user_id']);
         });
     }
 }

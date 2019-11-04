@@ -31,7 +31,7 @@ class PostsController extends Controller
     {
         $sheet = new sheet;
         $sheet->sheetName = trim($request->input('title'));
-        $sheet->save()
+        $sheet->save();
         return new PostResource($post);
     }
 
@@ -57,7 +57,7 @@ class PostsController extends Controller
     {
         // ใช้ method put ในการส่ง
         $sheet->sheetName = trim($request->input('title'));
-        $sheet->save()
+        $sheet->save();
         return new PostResource($post);
     }
 

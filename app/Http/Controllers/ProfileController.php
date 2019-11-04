@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\sheet;
+use Illuminate\Support\Facades\DB;
+use App\Sheet;
+use App\OwnSheet;
 use Auth;
 
 class ProfileController extends Controller
@@ -19,7 +21,10 @@ class ProfileController extends Controller
     public function index()
     {
         // if(Auth::check()){
-            $products = sheet::get();
+            $products = DB::table('own_sheets')
+            ->join('sheets', 'own_sheets.sheet_id', '=', 'sheets.id')
+            ->select('sheets.*')
+            ->get();
             return view('commerce.Store', ['products' => $products]);
         // }else{
             // return view('shop.Home');

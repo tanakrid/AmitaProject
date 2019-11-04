@@ -9,6 +9,8 @@
     <h1> tanakrid </h1>
 @endauth
 <div class="container">
+    <!-- <embed src="file:///C:/Users/ccs_win10_17/Desktop/OS-A-IO.pdf" width="500" height="375"> -->
+    <embed src="{{url('image/Ex-FileSystem.pdf')}}#toolbar=0" style="width:718px; height:700px;" frameborder="0">
     <div class="section align-horizon">
         @foreach($products as $product)
             @include('layouts._Card')

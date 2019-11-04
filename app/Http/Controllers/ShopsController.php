@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\sheet;
+use App\Sheet;
+use App\OwnSheet;
 use Illuminate\Http\Request;
-
+use Auth;
 
 class ShopsController extends Controller
 {
@@ -14,7 +15,7 @@ class ShopsController extends Controller
      */
     public function index()
     {
-        $sheets = sheet::get();
+        $sheets = Sheet::get();
         return view('shop.FrontLine', ['products' => $sheets]);
     }
 
@@ -36,7 +37,11 @@ class ShopsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $own_sheet = new OwnSheet;
+        $own_sheet->user_id = $request->input('user_id');
+        $own_sheet->sheet_id = Auth::user()->id;
+        $own_sheet->save();
+        return redirect()->action('ShopsController@index');
     }
 
     /**
@@ -47,7 +52,7 @@ class ShopsController extends Controller
      */
     public function show($id)
     {
-        $product = sheet::findOrFail($id);
+        $product = Sheet::findOrFail($id);
         return view('shop.ProfileProduct', ['product' => $product]);
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostCommentsTable extends Migration
+class SheetsTableAddSaleAndIncome extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreatePostCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_comments', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-            $table->softDeletes();
-            $table->string('detail', 800)->nullable();
+        Schema::table('sheets', function (Blueprint $table) {
+            $table->double('income', 8, 2)->unsigned()->default(0);
+            $table->integer('sale')->default(0);
         });
     }
 
@@ -28,6 +26,8 @@ class CreatePostCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_comments');
+        Schema::table('sheets', function (Blueprint $table) {
+            //
+        });
     }
 }

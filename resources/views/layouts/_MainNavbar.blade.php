@@ -8,7 +8,24 @@
     @endif
       <li><a href="{{ action('ShopsController@index')}}"> Market </a></li>
       <li>
-        <a href="{{ url('/home')}}" style="display:inline"> {{ Auth::user()->name}} </a>
+        <a class='dropdown-trigger' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li>
+            <a href="{{ route('logout') }}" 
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+              {{ __('Logout') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+          </li>
+          <li>
+            <a href="{{ url('/home')}}"> Formal Home </a>
+          </li>
+        </ul>
       </li>
     </ul>
       <!-- Right Side Of Navbar -->

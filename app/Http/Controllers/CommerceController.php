@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\sheet;
+use Illuminate\Support\Facades\DB;
+
+use App\Sheet;
 use App\helper\test;
+use Auth;
 
 class CommerceController extends Controller
 {
@@ -19,18 +22,21 @@ class CommerceController extends Controller
      */
     public function index()
     {
-        $products = sheet::get();
+        $products = DB::table('sheets')
+            ->join('users', 'sheets.user_id', '=', 'users.id')
+            ->select('sheets.*')
+            ->get();
         $sumAmount = 0;
         $sumIncome = 0;
         foreach ($products as $product) {
-            $sumAmount += 1;
-            $sumIncome += (float)$product->price;
+            $sumAmount += $product->sale;
+            $sumIncome += (float)$product->income;
         }
         return view('commerce.PortSelling', [
             'products' => $products, 
             'sumAmount' => $sumAmount,
             'sumIncome' => $sumIncome
-            ]);
+        ]);
     }
 
     /**
@@ -51,7 +57,19 @@ class CommerceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sheet = new Sheet;
+        $sheet->sheet_name = $request->input('sheet_name');
+        $sheet->sheet_type = $request->input('sheet_type');
+        $sheet->instructor = $request->input('instructor');
+        $sheet->subject_id = $request->input('subject_id');
+        $sheet->sec_number = $request->input('sec_number');
+        $sheet->price = floatval($request->input('price'));
+        $sheet->sheet_src = $request->input('sheet_src');
+        $sheet->rating = 'NORMAL';
+        $sheet->autor_name = Auth::user()->name;
+        $sheet->user_id = Auth::user()->id;
+        $sheet->save();
+        return redirect()->action('CommerceController@create');
     }
 
     /**

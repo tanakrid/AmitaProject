@@ -19,24 +19,21 @@
             @else
                 @foreach($products as $product)
                 <tr>
-                    <td>{{ $product->sheetName }}</td>
-                    <td>
+                    <td style="vertical-align: top;text-align:center;">{{ $product->sheet_name }}</td>
+                    <td style="vertical-align: top;">
                         <p>
-                            {{
-                                $product->sheetType.
-                                $product->autorName.
-                                $product->subjectId.
-                                $product->secNumber.
-                                $product->autorName.
-                                $product->instructor 
-                            }}
+                            <p>type : {{$product->sheet_type}}</p>
+                            <p>autor : {{$product->autor_name}}</p>
+                            <p>subject id : {{$product->subject_id}}</p>
+                            <p>section : {{$product->sec_number}}</p>
+                            <p>instructor : {{$product->instructor}}</p>
                         </p>
                     </td>
-                    <td>{{ $product->created_at }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td> 0 </td>
-                    <td> 0 </td>
-                    <td>
+                    <td style="vertical-align: top;text-align:center;">{{ $product->created_at }}</td>
+                    <td style="vertical-align: top;text-align:center;">{{ $product->price }}</td>
+                    <td style="vertical-align: top;text-align:center;">{{ $product->sale }} </td>
+                    <td style="vertical-align: top;text-align:center;">{{ $product->income }}</td>
+                    <td style="vertical-align: top;text-align:center;">
                         <a class="waves-effect waves-light btn"> edit </a>
                         <a class="red lighten-1 waves-effect waves-light btn"> delete </a>
                     </td>

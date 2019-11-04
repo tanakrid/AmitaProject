@@ -1,9 +1,9 @@
 <nav class="light-green accent-3" role="navigation">
   <div class="nav-wrapper container">
-    <a id="logo-container" href="#" class="brand-logo">Logo</a>
+    <a id="logo-container" href="{{ url('/') }}" class="brand-logo">Logo</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#"> Login </a></li>
-      <li><a href="#"> Register </a></li>
+      <!-- <li><a href="#"> Login </a></li>
+      <li><a href="#"> Register </a></li> -->
       @guest
             <li>
                 <a href="{{ route('login') }}">{{ __('Login') }}</a>

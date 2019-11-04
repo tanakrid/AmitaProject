@@ -15,7 +15,7 @@ class SheetsTableSeeder extends Seeder
     public function run()
     {
         $user = new User;
-        // $user->id = 1;
+        $user->id = 1;
         $user->name = 'Administrator';
         $user->email = 'admin@apollo11.com';
         $user->password = Hash::make('admin');

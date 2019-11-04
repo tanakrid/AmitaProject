@@ -14,7 +14,7 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         factory(Post::class, 20)->create([
-            'user_id' => 10
+            'user_id' => 1
         ]);
     }
 }

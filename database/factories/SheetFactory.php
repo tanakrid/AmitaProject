@@ -16,6 +16,8 @@ $factory->define(Sheet::class, function (Faker $faker) {
         'instructor' => $faker->text(20),
         'price' => $faker->numberBetween(100,9999),
         'view_count' => $faker->numberBetween(10, 9999),
-        'rating' => $faker->randomElement($array = array('GOOD', 'NORMAL', 'BAD')) 
+        'rating' => $faker->randomElement($array = array('GOOD', 'NORMAL', 'BAD')),
+        'sale' => $faker->numberBetween(1,100),
+        'income' => $faker->numberBetween(100,9999)
     ];
 });
