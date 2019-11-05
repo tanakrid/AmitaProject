@@ -20,15 +20,16 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        // if(Auth::check()){
+        if(Auth::check()){
             $products = DB::table('own_sheets')
+            ->where('own_sheets.user_id', '=', Auth::user()->id)
             ->join('sheets', 'own_sheets.sheet_id', '=', 'sheets.id')
             ->select('sheets.*')
             ->get();
             return view('commerce.Store', ['products' => $products]);
-        // }else{
-            // return view('shop.Home');
-        // }
+        }else{
+            return view('shop.Home');
+        }
     }
 
     /**

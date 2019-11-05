@@ -5,3 +5,9 @@ form{
 .btn-small{
     margin: 1rem 2rem;
 }
+
+.font-form{
+    font-size:2rem;
+    color:black;
+    margin-left:0.5rem;
+}
