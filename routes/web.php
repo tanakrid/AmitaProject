@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('shop.HomePage');
 });
+Route::get('/FrontLine', 'ShopController@goFrontLine');
+
+Route::get('/Buy', 'CommerceController@goBuying');
+
+Route::resource('/posts', 'PostsController');
+
+
