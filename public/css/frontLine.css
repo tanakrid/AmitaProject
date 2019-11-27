@@ -1,13 +1,24 @@
 .align-horizon{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .width-card{
     width: 30%;
-    margin: 3rem;
+    margin: 1rem;
 }
 
 .text-center{
     text-align: center;
 }
+
+.black-tag{
+    background-color: black;
+}
+
+.pop-shadow:hover{
+    -webkit-box-shadow: 6px 11px 18px 3px rgba(0,0,0,0.49); 
+    box-shadow: 6px 11px 18px 3px rgba(0,0,0,0.49);
+}
+

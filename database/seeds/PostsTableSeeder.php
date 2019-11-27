@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Post;
+use App\User;
 
 class PostsTableSeeder extends Seeder
 {
@@ -12,13 +13,8 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        $post = new Post;
-        $post->title = 'Hello World';
-        $post->detail = 'This is first post';
-        $post->view_count = 0;
-        $post->save();
-
-        factory(Post::class, 20)->create();
-        factory(Post::class, 20)->states('popular')->create();
+        factory(Post::class, 20)->create([
+            'user_id' => 1
+        ]);
     }
 }
